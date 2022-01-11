@@ -157,10 +157,30 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-function game(user, computer){
-  /*add your code here*/
+let computer = Math.random();
+
+if(computer < 0.34){
+  computer = "rock";
+}else if(computer <= 0.67){
+  computer = "paper";
+}else{
+  computer = "scissors";
 }
 
+function game(user, computer){
+  if(computer === user){
+    return "it's a tie";
+  }else if(computer === "rock" && user === "paper"){
+    return "you win!";
+  }else if(computer === "paper" && user === "scissors"){
+    return "you win!";
+  }else if(computer === "scissors" && user === "rock"){
+    return "you win!";
+  }else{
+    return "you lose!"
+  }
+}
+console.log(game("rock", computer));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -174,11 +194,10 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(kiolmeters){
+  return kiolmeters * 0.621371;
 }
-
-
+console.log(miles(5));
 
 //Task 5b - Feet to CM
 /*
@@ -188,9 +207,10 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+  return cm * 30.48;
 }
+console.log(feet(3));
 
 
 
@@ -204,8 +224,12 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+
+function annoyingSong(number){
+      while(number > 0){
+        return `${number} bottles of soda on the wall, ${number} bottles of soda, take one down pass it around ${number - 1} bottles of soda on the wall`;
+      }
+      number - 1;
 }
 
 
